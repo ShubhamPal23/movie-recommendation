@@ -1,0 +1,108 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #f0f0f0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1b1b1b;
+  padding: 15px 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.logo h1 {
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links > * {
+  margin: 0 20px;
+  font-size: 23px;
+  text-decoration: none;
+  color: white;
+}
+
+.liinks:hover {
+  color: #ff6600;
+  transition: all 0.3s ease-in-out;
+  scale: calc(1.04);
+}
+.nav-links a.active {
+  color: orange;
+  scale: calc(1.04);
+}
+.user-auth .login-btn,
+.user-auth .signup-btn {
+  background-color: transparent;
+  border: 2px solid #ff6600;
+  color: #ff6600;
+  padding: 8px 15px;
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.user-auth .login-btn:hover,
+.user-auth .signup-btn:hover {
+  background-color: #ff6600;
+  color: #fff;
+}
+
+.user-auth .signup-btn {
+  background-color: #ff6600;
+  color: #fff;
+  border: none;
+}
+
+.user-auth .signup-btn:hover {
+  background-color: #ff4500;
+}
+.search-form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #333;
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  width: 236px;
+}
+
+.search-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #ff6600;
+  border: none;
+  border-radius: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: #e65c00;
+}
+

@@ -1,0 +1,10 @@
+.movie-recommendation{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.last-work{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
