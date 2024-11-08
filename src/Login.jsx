@@ -12,7 +12,6 @@ function Login() {
     e.preventDefault();
     axios
       .post("http://localhost:3001/login", { email, password })
-      // .post("mongodb+srv://ripper2323:ripper&23bham@cluster1.ipj8t.mongodb.net/login",{email,password})
       .then((result) => {
         if (result.data.status === "Success") {
           // Save user info to localStorage

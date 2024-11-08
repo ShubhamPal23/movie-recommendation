@@ -26,7 +26,7 @@ export const Signup = () => {
       setError("Password must be at least 6 characters long.");
       return;
     }
-    setError(''); // Clear any previous error
+    setError('');
     axios
       .post("http://localhost:3001/register", { name, email, password })
       .then((result) => {

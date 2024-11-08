@@ -1,17 +1,17 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setMovies, setFilteredMovies } from '../store/movieSlice';
 import Papa from 'papaparse';
 import './Recommendation.css';
-import { useParams,useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Recommendation = () => {
   const dispatch = useDispatch();
   const { movies, filteredMovies } = useSelector((state) => state.movie);
   const [keyword, setKeyword] = useState('');
-  const { newkeyword }=useParams();
+
   const navigate=useNavigate();
- 
   useEffect(() => {
     if (movies.length === 0) {
       const loadCSV = async (fileName) => {
@@ -102,8 +102,6 @@ const Recommendation = () => {
                 <p style={{color:"black"}}> {movie.genres || 'N/A'}</p>
                 <p className="recom-overview" style={{color:"black",marginTop:"20px",fontSize:"1rem"}}> {movie.overview || 'N/A'}</p>
               </div>
-                
-                {/* <button className='search-button' onClick={()=>{navigate(`/recommendation/${encodeURIComponent(movie.movieTitle)}`)}}>View More</button> */}
             </div>
           ))
         ) : (

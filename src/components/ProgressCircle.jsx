@@ -1,16 +1,16 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import './ProgressCircle.css';
 
 const ProgressCircle = ({ score, label }) => {
-  const circleRadius = 45; // Radius for the circle
-  const circumference = 2 * Math.PI * circleRadius; // Circle's circumference
-  const offset = circumference - (score / 100) * circumference; // Offset for score
+  const circleRadius = 45; 
+  const circumference = 2 * Math.PI * circleRadius; 
+  const offset = circumference - (score / 100) * circumference; 
 
-  // Function to determine color based on score
   const getScoreColor = (score) => {
-    if (score <= 30) return '#ff4d4d'; // Red
-    if (score <= 70) return `rgb(${255 - (score - 30) * 5.5}, 204, 0)`; // Transition from red to yellow
-    return `rgb(${102 - (score - 70) * 1.5}, 204, ${102 - (score - 70) * 2})`; // Transition from yellow to green
+    if (score <= 30) return '#ff4d4d'; 
+    if (score <= 70) return `rgb(${255 - (score - 30) * 5.5}, 204, 0)`; 
+    return `rgb(${102 - (score - 70) * 1.5}, 204, ${102 - (score - 70) * 2})`; 
   };
 
   return (

@@ -1,9 +1,6 @@
-
-
 body {
   background-color: #f0f0f0;
 }
-
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -12,20 +9,16 @@ body {
   padding: 10px 30px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
-
 .logo h1 {
   color: #fff;
   font-size: 24px;
   cursor: pointer;
 }
-
 .nav-links {
   margin-left: 230px;
   display: flex;
   list-style: none;
 }
-
 .nav-links > * {
   padding-top: 5px;
   margin: 0 20px;
@@ -33,7 +26,6 @@ body {
   text-decoration: none;
   color: white;
 }
-
 .liinks:hover {
   color: #ff6600;
   transition: all 0.3s ease-in-out;
@@ -76,8 +68,6 @@ body {
   justify-content: center;
   margin-bottom: 20px;
 }
-
-
 
 .search-button {
   padding: 10px 20px;

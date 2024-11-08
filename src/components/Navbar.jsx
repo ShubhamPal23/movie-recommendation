@@ -10,7 +10,6 @@ const Navbar = () => {
   const [searchOpen, setSearchOpen] = useState(false);
   const [query, setQuery] = useState("");
   const searchRef = useRef(null);
-  
 
   useEffect(() => {
     const loggedInUser = JSON.parse(localStorage.getItem("user"));
@@ -54,20 +53,25 @@ const Navbar = () => {
     navigate("/register");
   };
 
-
   return (
     <nav className="navbar">
       <div className="logo">
         <h1>MovieZone</h1>
       </div>
       <ul className="nav-links">
-        <NavLink className="liinks" to="/">Home</NavLink>
-        <NavLink className="liinks" to="/trending">Trending</NavLink>
-        <NavLink className="liinks" to="/recommendation">Recommendation</NavLink>
+        <NavLink className="liinks" to="/">
+          Home
+        </NavLink>
+        <NavLink className="liinks" to="/trending">
+          Trending
+        </NavLink>
+        <NavLink className="liinks" to="/recommendation">
+          Recommendation
+        </NavLink>
       </ul>
       <div className="search-container" ref={searchRef}>
         <span className="search-icon" onClick={handleSearchIconClick}>
-          {searchOpen?<FaTimes/>:<FaSearch/>}
+          {searchOpen ? <FaTimes /> : <FaSearch />}
         </span>
         {searchOpen && (
           <div className="navbar-search-bar">
@@ -89,13 +93,21 @@ const Navbar = () => {
       <div className="user-auth">
         {user ? (
           <div>
-            <span style={{ color: "orange",fontSize:"20px" }}>Welcome, {user.name}!</span>
-            <button onClick={handleLogout} className="login-btn">Logout</button>
+            <span style={{ color: "orange", fontSize: "20px" }}>
+              Welcome, {user.name}!
+            </span>
+            <button onClick={handleLogout} className="login-btn">
+              Logout
+            </button>
           </div>
         ) : (
           <>
-            <button onClick={handleLog} className="login-btn">Login</button>
-            <button onClick={handleSign} className="signup-btn">Sign Up</button>
+            <button onClick={handleLog} className="login-btn">
+              Login
+            </button>
+            <button onClick={handleSign} className="signup-btn">
+              Sign Up
+            </button>
           </>
         )}
       </div>

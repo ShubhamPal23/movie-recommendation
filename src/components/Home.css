@@ -1,10 +1,10 @@
 #home {
   color: #e0e0e0;
 }
-.home-container{
+.home-container {
   padding: 20px;
 }
-.blue{
+.blue {
   min-height: 360px;
   position: relative;
   background-image: url("../assets/sarchimg.jpg");
@@ -22,7 +22,7 @@
   gap: 13px;
   justify-content: center;
 }
-.content{
+.content {
   display: flex;
   gap: 370px;
   margin-bottom: 33px;
@@ -55,7 +55,7 @@
   display: inline-block;
 }
 
-.pagination a, 
+.pagination a,
 .pagination button {
   margin: 0 5px;
   padding: 10px 15px;
@@ -67,7 +67,7 @@
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
-.pagination a:hover, 
+.pagination a:hover,
 .pagination button:hover {
   background-color: #ff6600;
   color: #fff;
@@ -80,7 +80,7 @@
 
 .pagination .active a {
   background-color: #ff6600;
-  color: #fff; 
+  color: #fff;
   border: none;
 }
 
@@ -88,20 +88,19 @@
   background-color: #ff6600;
   color: #fff;
 }
-.search-bar{
+.search-bar {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
 }
 .search-input {
-  
   border: 0;
   outline: none;
-  margin-top:50px;
+  margin-top: 50px;
   padding: 10px 20px;
   font-size: 16px;
   border-radius: 30px;
-  color: rgba(0, 0, 0, .5);
+  color: rgba(0, 0, 0, 0.5);
   width: 100%;
 }
