@@ -1,18 +1,22 @@
-.trending-page {
+#trending {
   padding: 20px;
-  background-color: #121212;
   color: #f0f0f0;
   min-height: 100vh;
 }
 
-.trending-page h1 {
+#trending h1 {
   text-align: center;
   margin-bottom: 20px;
   font-size: 2.5rem;
   color: #f39c12;
 }
 
-/* Filter Buttons */
+.trend-btn{
+  gap: 10px;
+  display: flex;
+  justify-content: start;
+  margin-bottom: 24px;
+}
 .filters {
   display: flex;
   justify-content: center;
@@ -21,10 +25,10 @@
 }
 
 .time-range-buttons {
-  justify-content: center;
   display: flex;
   gap: 10px;
   margin-bottom: 24px;
+  margin-left: 150px;
 }
 
 .time-range-buttons button {
@@ -49,4 +53,20 @@
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
+}
+.check-genre-btn {
+  background-color: transparent;
+  border: 2px solid #ff6600;
+  color: #ff6600;
+  padding: 10px 20px;
+  margin-left: 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.check-genre-btn:hover {
+  background-color: #ff4500;
+  color: #fff;
 }

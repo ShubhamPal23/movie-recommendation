@@ -11,14 +11,14 @@
   transform: translateY(-10px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
 }
-.image-content{
-    width: 100%;
-    height: 300px;
+.image-content {
+  width: 100%;
+  height: 230px;
 }
-.image-content img{
-    width: 100%;
-    height: 100%;
-    transition: opacity 0.3s;
+.image-content img {
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.3s;
 }
 
 .movie-card-image:hover {

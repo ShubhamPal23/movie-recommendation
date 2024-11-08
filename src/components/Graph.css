@@ -1,0 +1,25 @@
+.genre-chart__dropdown {
+  margin-top: 10px;
+  margin-left: 20px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  color: #333;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.genre-chart__dropdown:hover {
+  background-color: #e0e0e0;
+}
+
+.genre-chart__option {
+  padding: 10px;
+  color: #333;
+  background-color: #fff;
+  cursor: pointer;
+}

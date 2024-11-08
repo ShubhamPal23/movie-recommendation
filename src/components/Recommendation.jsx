@@ -2,16 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setMovies, setFilteredMovies } from '../store/movieSlice';
 import Papa from 'papaparse';
-import { NavLink } from 'react-router-dom';
 import './Recommendation.css';
-import { useNavigate } from 'react-router-dom';
+import { useParams,useNavigate } from 'react-router-dom';
 
 const Recommendation = () => {
   const dispatch = useDispatch();
   const { movies, filteredMovies } = useSelector((state) => state.movie);
   const [keyword, setKeyword] = useState('');
+  const { newkeyword }=useParams();
   const navigate=useNavigate();
-
+ 
   useEffect(() => {
     if (movies.length === 0) {
       const loadCSV = async (fileName) => {
@@ -27,7 +27,7 @@ const Recommendation = () => {
 
       const loadAllMovies = async () => {
         try {
-          const movieData = await loadCSV('movie_data_rich.csv');
+          const movieData = await loadCSV('movies_with_image_links.csv');
           const reviewData = await loadCSV('generated_movie_reviews.csv');
           const movielink = await loadCSV('movies.csv');
 
@@ -60,53 +60,57 @@ const Recommendation = () => {
     }
   }, [dispatch, movies.length]);
 
-  const handleSearch = () => {
+  const handleRecommend = (newkeyword=keyword) => {
     if (keyword.trim() === '') {
       dispatch(setFilteredMovies([]));
     } else {
-      const lowerKeyword = keyword.toLowerCase();
+      const lowerKeyword = newkeyword.toLowerCase();
       const results = movies.filter((movie) =>
         Object.values(movie).some((value) =>
           String(value).toLowerCase().includes(lowerKeyword)
         )
       );
       dispatch(setFilteredMovies(results));
+      navigate(`/recommendation?keyword=${newkeyword}`)
     }
   };
-  // const handleviewmore=()=>{
-  //   navigate(`/recommendation/${encodeURIComponent(movie.movieTitle)}`)
-  // }
-
   return (
-    <div className="movie-recommendation">
+    <div id="recommendation">
       <div>
-      <h2 style={{textAlign:"center"}}>Movie Recommendations</h2>
+        <h2 style={{textAlign:"center", marginTop:"20px"}}>Find Your Perfect Movie</h2>
       </div>
       <div>
-      <input
+        <input
         type="text"
         placeholder="Type a movie keyword..."
         value={keyword}
         onChange={(e) => setKeyword(e.target.value)}
-        className="search-input"
-      />
-      <button onClick={handleSearch} style={{marginBottom:"30px"}} className="search-button">Recommend</button>
+        className="recommend-input"
+        />
+        <button onClick={()=>handleRecommend(keyword)} style={{marginBottom:"30px"}} className="search-button">Recommend</button>
       </div>
-      
-
-
+    
       <div>
         {filteredMovies.length > 0 ? (
           filteredMovies.map((movie) => (
-            <div key={movie.movieId} style={{ margin: "10px",padding: "10px",border: "1px solid #ddd"}} className='last-work' >
-                <h3 style={{ textAlign: "center",color:"white" }}>{movie.movieTitle}</h3>
-              <p style={{color:"white"}}><strong>Genre:</strong> {movie.genres || 'N/A'}</p>
-              <p style={{color:"white"}}><strong>Description:</strong> {movie.overview || 'N/A'}</p>
-              <button className='search-button' onClick={()=>{navigate(`/recommendation/${encodeURIComponent(movie.movieTitle)}`)}}>View More</button>
+            <div key={movie.movieId} className='last-work' >
+              <div className="recom-img">
+                <img onClick={()=>{navigate(`/recommendation/${encodeURIComponent(movie.movieTitle)}`)}} src={movie.imageLink} alt={movie.movieTitle} />
+              </div>
+              <div className="recom-details">
+              <a style={{textDecoration:"none", cursor:"pointer"}} onClick={()=>{navigate(`/recommendation/${encodeURIComponent(movie.movieTitle)}`)}}><h3 style={{color:"black" }}><strong>{movie.movieTitle}</strong> </h3></a>
+                <p style={{color:"black"}}> {movie.genres || 'N/A'}</p>
+                <p className="recom-overview" style={{color:"black",marginTop:"20px",fontSize:"1rem"}}> {movie.overview || 'N/A'}</p>
+              </div>
+                
+                {/* <button className='search-button' onClick={()=>{navigate(`/recommendation/${encodeURIComponent(movie.movieTitle)}`)}}>View More</button> */}
             </div>
           ))
         ) : (
-          <p>No recommendations found</p>
+          <div className="no-recom" style={{minHeight:"510px"}}>
+            <p>No recommendations found</p>
+          </div>
+          
         )}
       </div>
     </div>

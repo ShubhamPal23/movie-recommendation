@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import "./MovieCard.css"; 
 
@@ -23,3 +24,5 @@ const MovieCard = ({ title, imageUrl, rating, genres }) => {
 };
 
 export default MovieCard;
+
+

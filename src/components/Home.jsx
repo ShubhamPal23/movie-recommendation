@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import MovieCard from "./MovieCard";
 import { useNavigate } from "react-router-dom";
@@ -22,6 +23,7 @@ const Home = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [movies, setMovies] = useState([]);
+  const [query, setQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [genres, setGenres] = useState({});
@@ -42,6 +44,7 @@ const Home = () => {
       .catch((error) => console.error("Error fetching genre data:", error));
 
     fetchMovies(currentPage);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPage, selectedGenres]);
 
   const fetchMovies = (page) => {
@@ -70,16 +73,48 @@ const Home = () => {
   const handlegenre = () => {
     navigate("/genre");
   };
+  const handleSearch = () => {
+    if (query) {
+      navigate(`/search?query=${query}`, { state: { query } });
+    }
+  };
 
   return (
-    <div className="home">
+    <div id="home">
+      <div className="blue">
+        <div style={{paddingTop:"70px",paddingLeft:"20px"}} className="bluecontent">
+          <h2 style={{color:"white"}}>Welcome</h2>
+          <h3 style={{color:"white"}}>Thousands of Movies, TV Shows and Endless Entertainment await. Explore Now</h3>
+        </div>
+        <div className="search-bar">
+          <input
+            type="text"
+            placeholder="Search for a movie, tv show......"
+            spellCheck="false"
+            autoComplete="off"
+            autoCorrect="off"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            className="search-input"
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleSearch();
+              }
+            }}
+          />
+          <button onClick={handleSearch} className="search-button">
+            Search
+          </button>
+        </div>
+      </div>
+      <div className="home-container">
+        
+      
       <div className="content">
         <button onClick={handlegenre} className="genre-btn">
           Select Your Favourite Genre
         </button>
-        <h1>
-          Top Rated Movies
-        </h1>
+        <h1>Top Movies</h1>
       </div>
 
       <div className="movie-grid">
@@ -111,6 +146,7 @@ const Home = () => {
         containerClassName={"pagination"}
         activeClassName={"active"}
       />
+      </div>
     </div>
   );
 };

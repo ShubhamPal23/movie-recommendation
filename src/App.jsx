@@ -10,6 +10,7 @@ import Genre from "./components/Genre";
 import Trending from "./components/Trending";
 import Search from "./components/Search";
 import MovieDetail from "./components/MovieDetail";
+import Graph from "./components/Graph";
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
           <Route path="/genre" element={<Genre/>}></Route>
           <Route path="/trending" element={<Trending/>}></Route>
           <Route path="/search" element={<Search/>}></Route>
+          <Route path="/trending/graph" element={<Graph/>}></Route>
         </Routes>
       </BrowserRouter>
     </div>
